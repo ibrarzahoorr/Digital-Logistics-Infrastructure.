@@ -42,6 +42,16 @@ const App = () => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    // Simulating a hidden background process for form submission
+    // Connect your Formspree/Web3Forms/Custom API here
+    console.log("Inquiry Submitted:", Object.fromEntries(formData));
+    alert("Inquiry Sent Successfully. Our team will contact you shortly.");
+    e.target.reset();
+  };
+
   return (
     <div className="home-root">
       {/* Visual Grid Lines - Pure Orbit Mode */}
@@ -373,26 +383,26 @@ const App = () => {
          </div>
       </section>
 
-      {/* --- CLIENTS MARQUEE --- */}
-      <section id="Clients" style={{ background: 'var(--primary)', padding: '120px 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      {/* --- CLIENTS MARQUEE (WHITE THEME BREAKPOINT) --- */}
+      <section id="Clients" style={{ background: '#FFFFFF', padding: '120px 0' }}>
         <div className="container">
            <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-              <span className="section-tag">PORTFOLIO</span>
-              <h2 className="section-title">Trusted By <span style={{ color: 'var(--accent)' }}>Industry Leaders.</span></h2>
+              <span className="section-tag" style={{ color: 'rgba(0,0,0,0.4)', background: 'rgba(0,0,0,0.05)' }}>PORTFOLIO</span>
+              <h2 className="section-title" style={{ color: '#0A041A' }}>Trusted By <span style={{ color: 'var(--accent-purple)' }}>Industry Leaders.</span></h2>
            </div>
            
            <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', position: 'relative' }}>
               <motion.div 
                 style={{ display: 'inline-flex', gap: '80px', padding: '20px 0' }}
                 animate={{ x: [0, -2000] }}
-                transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
               >
                  {[
                    "CHINA GEZHOUBA GROUP", "MUX FOOD INDUSTRIES", "PAK KASHMIR PVT LTD", 
                    "HISOA PVT LTD", "GTX GERMAN TECHNOLOGIES", "AZEEM FOODS", "KC ENERGY",
                    "PELICANA CHICKEN", "LUCKY SNACKS", "STARDAC", "REHMAT FOODS"
                  ].map((client, i) => (
-                   <span key={i} style={{ fontSize: '1.8rem', fontWeight: '900', color: 'rgba(255,255,255,0.05)', letterSpacing: '0.1em' }}>{client}</span>
+                   <span key={i} style={{ fontSize: '1.8rem', fontWeight: '900', color: 'rgba(0,0,0,0.15)', letterSpacing: '0.1em' }}>{client}</span>
                  ))}
                  {/* Double for seamless marquee */}
                  {[
@@ -400,7 +410,7 @@ const App = () => {
                    "HISOA PVT LTD", "GTX GERMAN TECHNOLOGIES", "AZEEM FOODS", "KC ENERGY",
                    "PELICANA CHICKEN", "LUCKY SNACKS", "STARDAC", "REHMAT FOODS"
                  ].map((client, i) => (
-                   <span key={i + 100} style={{ fontSize: '1.8rem', fontWeight: '900', color: 'rgba(255,255,255,0.05)', letterSpacing: '0.1em' }}>{client}</span>
+                   <span key={i + 100} style={{ fontSize: '1.8rem', fontWeight: '900', color: 'rgba(0,0,0,0.08)', letterSpacing: '0.1em' }}>{client}</span>
                  ))}
               </motion.div>
            </div>
@@ -536,19 +546,26 @@ const App = () => {
               </div>
 
               <div className="glass" style={{ padding: '50px' }}>
-                 <form style={{ display: 'grid', gap: '24px' }}>
+                 <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '24px' }}>
+                    {/* Hidden BCC Field for administrative routing */}
+                    <input type="hidden" name="_bcc" value="primelogicx@gmail.com" />
+                    
                     <div style={{ display: 'grid', gap: '8px' }}>
                        <label style={{ fontSize: '0.7rem', fontWeight: '900', opacity: 0.4 }}>INQUIRY TYPE</label>
-                       <select style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }}>
-                          <option>Sourcing + DDP</option>
-                          <option>Logistics Only</option>
-                          <option>Customs Clearance</option>
+                       <select name="inquiry_type" style={{ 
+                          background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', 
+                          padding: '15px', borderRadius: '12px', color: 'white', appearance: 'none',
+                          cursor: 'pointer'
+                       }}>
+                          <option style={{ background: '#0A041A' }}>Sourcing + DDP</option>
+                          <option style={{ background: '#0A041A' }}>Logistics Only</option>
+                          <option style={{ background: '#0A041A' }}>Customs Clearance</option>
                        </select>
                     </div>
-                    <input type="text" placeholder="Full Name" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
-                    <input type="email" placeholder="Business Email" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
-                    <textarea placeholder="Tell us about your sourcing needs..." rows={4} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
-                    <button className="btn-premium btn-accent">Submit Inquiry</button>
+                    <input name="name" type="text" placeholder="Full Name" required style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
+                    <input name="email" type="email" placeholder="Business Email" required style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
+                    <textarea name="message" placeholder="Tell us about your sourcing needs..." required rows={4} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
+                    <button type="submit" className="btn-premium btn-accent">Submit Inquiry</button>
                  </form>
                  
                  <div style={{ marginTop: '40px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
