@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* OrbitGL Inspired Color Palette */
+  --primary: #0A041A;
+  --primary-deep: #1A0B3D;
+  --primary-light: #2D1B69;
+  
+  --accent: #FFE600; /* Vibrant Yellow Pop */
+  --accent-blue: #00E5FF;
+  --accent-purple: #7000FF;
+  
+  --text-main: #FFFFFF;
+  --text-muted: #8E9BAE;
+  
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  
+  /* Modern Typography */
+  --font-body: 'Urbanist', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  
+  /* Spacing & Radius */
+  --radius-xl: 48px;
+  --radius-lg: 32px;
+  --radius-md: 20px;
+  
+  /* High-end transitions */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 9999;
+  filter: contrast(150%) brightness(100%);
+}
+
+h1, .h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+h2, h3, .heading {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5);
+  transition: all 0.5s var(--ease-expo);
+}
+
+.glass:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.glow-nebula {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(112, 0, 255, 0.15) 0%, transparent 70%);
+  filter: blur(100px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Buttons */
+.btn-premium {
+  padding: 18px 36px;
+  border-radius: 100px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.5s var(--ease-expo);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: #000;
+  border: none;
+}
+
+.btn-accent:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 230, 0, 0.2);
+}
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 1px solid var(--glass-border);
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--primary);
+}
+
+/* Section Spacing */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-separator {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+  position: relative;
+}
+
+.section-tag {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.95;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  section { padding: 100px 0; }
+  .section-title { font-size: 3rem; }
+}
+
+/* OrbitGL Global Elements */
+.grid-line {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.05), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.data-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent);
+  z-index: 2;
+}
