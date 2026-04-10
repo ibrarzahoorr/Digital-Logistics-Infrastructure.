@@ -63,7 +63,7 @@ const App = () => {
         </motion.div>
 
         <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }} className="nav-links">
-           {['Service', 'Process', 'Logistics', 'Network'].map((item) => (
+           {['Service', 'Process', 'Network', 'Team', 'Clients'].map((item) => (
              <a key={item} href={`#${item}`} style={{ 
                color: 'white', textDecoration: 'none', fontSize: '0.85rem', 
                fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em',
@@ -204,240 +204,306 @@ const App = () => {
         
         <div className="container">
           <div style={{ maxWidth: '800px', marginBottom: '100px' }}>
-            <span className="section-tag">ENGINEERING TRADE</span>
-            <h2 className="section-title">Digital Logistics <br /> <span style={{ color: 'var(--accent)' }}>Infrastructure.</span></h2>
+            <span className="section-tag">CORE SERVICES</span>
+            <h2 className="section-title">End-to-End <br /> <span style={{ color: 'var(--accent)' }}>Import Solutions.</span></h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '600px' }}>
+               From supplier discovery in China to final warehouse delivery. Bridge Initiative manages the entire supply chain so you don't have to.
+            </p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '30px' }}>
-             {/* Large Card */}
+             {/* Sourcing Card */}
              <motion.div 
                className="glass"
                style={{ 
-                 gridColumn: 'span 8', padding: '80px', minHeight: '500px', 
+                 gridColumn: 'span 8', padding: '60px', minHeight: '440px', 
                  display: 'flex', flexDirection: 'column', justifyContent: 'center',
                  background: 'rgba(26, 11, 61, 0.4)', position: 'relative', overflow: 'hidden',
-                 border: '1px solid rgba(255, 230, 0, 0.15)',
-                 boxShadow: 'inset 0 0 50px rgba(112, 0, 255, 0.05)'
+                 border: '1px solid rgba(255, 230, 0, 0.15)'
                }} 
                initial={{ opacity: 0, x: -50 }}
                whileInView={{ opacity: 1, x: 0 }}
                transition={{ duration: 1 }}
                viewport={{ once: true }}
              >
-                <div style={{ position: 'absolute', top: '-20px', right: '20px', fontSize: '12rem', fontWeight: '900', color: 'rgba(255, 255, 255, 0.02)', pointerEvents: 'none' }}>01</div>
-                <div style={{ color: 'var(--accent)', marginBottom: '48px' }}>
-                  <Globe size={48} />
-                </div>
-                <h3 style={{ fontSize: '3.5rem', marginBottom: '24px', lineHeight: '1', fontFamily: 'var(--font-heading)', color: '#FFF' }}>Direct Factory <br /> Integration</h3>
-                <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', maxWidth: '520px', lineHeight: '1.6' }}>
-                  Eliminate intermediaries with our direct-to-manufacturer verification engine. We negotiate at the source to guarantee technical fidelity.
+                <div style={{ position: 'absolute', top: '-20px', right: '20px', fontSize: '10rem', fontWeight: '900', color: 'rgba(255, 255, 255, 0.02)', pointerEvents: 'none' }}>01</div>
+                <div style={{ color: 'var(--accent)', marginBottom: '40px' }}><Search size={40} /></div>
+                <h3 style={{ fontSize: '2.5rem', marginBottom: '20px', color: '#FFF' }}>Strategic Product Sourcing</h3>
+                <p style={{ color: 'var(--text-muted)', maxWidth: '500px', lineHeight: '1.6' }}>
+                  We map the entire Chinese manufacturing landscape—from Alibaba/1688 to direct factory floors—to find the right price-to-quality ratio for your business.
                 </p>
-                <div style={{ marginTop: 'auto', display: 'flex', gap: '15px', color: 'var(--accent)', fontWeight: '900', cursor: 'pointer', fontSize: '0.75rem', letterSpacing: '0.25em' }}>
-                   EXPLORE NETWORK <ChevronRight size={18} />
+                <div style={{ marginTop: 'auto', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                   {['Market Analysis', 'Supplier Comparison', 'Price Negotiation'].map(tag => (
+                     <span key={tag} style={{ padding: '6px 12px', background: 'rgba(255,255,255,0.05)', borderRadius: '100px', fontSize: '0.65rem', fontWeight: '800', border: '1px solid rgba(255,255,255,0.1)' }}>{tag}</span>
+                   ))}
                 </div>
              </motion.div>
 
-             {/* Small Card */}
+             {/* Verification Card */}
              <motion.div 
                className="glass"
-               style={{ 
-                 gridColumn: 'span 4', padding: '60px 48px', background: 'var(--primary-light)', 
-                 display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden',
-                 border: '1px solid rgba(255, 255, 255, 0.1)'
-               }} 
+               style={{ gridColumn: 'span 4', padding: '50px', background: 'var(--primary-light)', position: 'relative', overflow: 'hidden' }} 
                initial={{ opacity: 0, x: 50 }}
                whileInView={{ opacity: 1, x: 0 }}
                transition={{ duration: 1 }}
                viewport={{ once: true }}
              >
-                <div style={{ position: 'absolute', top: '-10px', right: '10px', fontSize: '8rem', fontWeight: '900', color: 'rgba(255, 255, 255, 0.03)', pointerEvents: 'none' }}>02</div>
-                <div style={{ color: 'var(--accent-blue)', marginBottom: '32px' }}>
-                  <Shield size={44} />
-                </div>
-                <h3 style={{ fontSize: '2rem', marginBottom: '16px', lineHeight: '1.2', color: '#FFF' }}>Sourcing <br /> Audits</h3>
-                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.95rem', lineHeight: '1.5' }}>
-                  Physical verification and financial solvency checks for every manufacturer in your stream.
+                <div style={{ position: 'absolute', top: '-10px', right: '10px', fontSize: '6rem', fontWeight: '900', color: 'rgba(255, 255, 255, 0.03)', pointerEvents: 'none' }}>02</div>
+                <div style={{ color: 'var(--accent-blue)', marginBottom: '32px' }}><Shield size={40} /></div>
+                <h3 style={{ fontSize: '1.8rem', marginBottom: '16px', color: '#FFF' }}>On-Ground Audits</h3>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                  Our China-based staff performs physical factory audits and sample inspections before any contract is signed.
                 </p>
              </motion.div>
 
-             {/* Row 2 */}
+             {/* Logistics Card */}
              <motion.div 
                className="glass"
-               style={{ 
-                 gridColumn: 'span 4', padding: '60px 48px', display: 'flex', flexDirection: 'column',
-                 background: 'var(--primary-deep)', position: 'relative', overflow: 'hidden'
-               }} 
-               initial={{ opacity: 0, y: 50 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               transition={{ duration: 1 }}
-               viewport={{ once: true }}
+               style={{ gridColumn: 'span 4', padding: '50px', background: 'var(--primary-deep)', borderRight: '1px solid var(--glass-border)' }} 
+               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}
              >
-                <div style={{ position: 'absolute', bottom: '-10px', right: '10px', fontSize: '8rem', fontWeight: '900', color: 'rgba(255, 255, 255, 0.03)', pointerEvents: 'none' }}>03</div>
-                <div style={{ color: 'var(--accent-purple)', marginBottom: '32px' }}>
-                   <Truck size={44} />
-                </div>
-                <h3 style={{ fontSize: '2rem', marginBottom: '16px', color: '#FFF' }}>Smart <br /> Logistics</h3>
-                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.95rem', lineHeight: '1.5' }}>
-                  Dynamic route optimization and duty-paid (DDP) clearance pathways for high-value SKUs.
+                <div style={{ color: 'var(--accent-purple)', marginBottom: '32px' }}><Truck size={40} /></div>
+                <h3 style={{ fontSize: '1.8rem', marginBottom: '16px', color: '#FFF' }}>Customs & DDP</h3>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', lineHeight: '1.5' }}>
+                  Door-to-door (DDP) delivery. We handle port clearance, duties, and inland logistics across Pakistan and Middle East.
                 </p>
              </motion.div>
 
+             {/* Consultancy Card */}
              <motion.div 
                className="glass"
-               style={{ 
-                 gridColumn: 'span 8', padding: '60px', background: 'var(--primary)',
-                 display: 'flex', alignItems: 'center', gap: '80px', position: 'relative', overflow: 'hidden',
-                 border: '1px solid rgba(255, 255, 255, 0.08)'
-               }} 
-               initial={{ opacity: 0, y: 50 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               transition={{ duration: 1 }}
-               viewport={{ once: true }}
+               style={{ gridColumn: 'span 8', padding: '50px', background: 'var(--primary)', position: 'relative', overflow: 'hidden' }} 
+               initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
              >
-                <div style={{ position: 'absolute', bottom: '-20px', right: '20px', fontSize: '10rem', fontWeight: '900', color: 'rgba(255, 255, 255, 0.02)', pointerEvents: 'none' }}>04</div>
-                <div style={{ flex: 1 }}>
-                   <div style={{ color: 'var(--accent)', marginBottom: '32px' }}>
-                      <Layers size={44} />
+                <div style={{ display: 'flex', gap: '60px', alignItems: 'center' }}>
+                   <div style={{ flex: 1 }}>
+                      <div style={{ color: 'var(--accent)', marginBottom: '32px' }}><FileCheck size={40} /></div>
+                      <h3 style={{ fontSize: '1.8rem', marginBottom: '16px', color: '#FFF' }}>Import Consulting</h3>
+                      <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' }}>
+                         Landed cost consultation, duty handling, and documentation management for large-scale industrial projects.
+                      </p>
                    </div>
-                   <h3 style={{ fontSize: '2rem', marginBottom: '16px', color: '#FFF' }}>Trade Console</h3>
-                   <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.95rem', maxWidth: '350px' }}>
-                      Our proprietary software suite for real-time inventory oversight and data-driven procurement.
-                   </p>
-                </div>
-                <div style={{ flex: 1.2, display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '15px', opacity: 0.3 }}>
-                   {[...Array(15)].map((_, i) => (
-                     <div key={i} style={{ height: '30px', background: i % 3 === 0 ? 'var(--accent)' : 'rgba(255,255,255,0.05)', borderRadius: '4px' }} />
-                   ))}
+                   <div style={{ flex: 0.8, background: 'rgba(255,255,255,0.02)', padding: '30px', borderRadius: '24px', border: '1px dashed rgba(255,255,255,0.1)' }}>
+                      <p style={{ fontSize: '0.7rem', color: 'var(--accent)', fontWeight: '900', marginBottom: '12px' }}>EXPERT SERVICES</p>
+                      <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.8rem', display: 'grid', gap: '10px' }}>
+                         <li>✓ Duty & Tax Analysis</li>
+                         <li>✓ Trade Documentation</li>
+                         <li>✓ Customs Law Specialist</li>
+                      </ul>
+                   </div>
                 </div>
              </motion.div>
           </div>
         </div>
       </section>
 
-      {/* --- INDUSTRIAL FOCUS --- */}
-      <section id="Process" style={{ overflow: 'hidden' }}>
-         <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '100px', alignItems: 'center' }}>
-            <motion.div {...fadeIn}>
-               <div style={{ position: 'relative' }}>
-                  <img src={machineryImg} alt="Technical Sourcing" style={{ width: '100%', borderRadius: 'var(--radius-xl)', filter: 'grayscale(0.2) contrast(1.1)', mixBlendMode: 'lighten' }} />
-                  <div className="glass" style={{ position: 'absolute', top: '-30px', right: '-30px', padding: '30px', width: '240px', textAlign: 'center', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }}>
-                     <h4 style={{ fontSize: '2rem', color: 'var(--accent)', marginBottom: '5px' }}>20%</h4>
-                     <p style={{ fontSize: '0.8rem', fontWeight: '800' }}>AVG COST SAVINGS</p>
-                  </div>
+      {/* --- PROCESS PIPELINE (9 STEPS) --- */}
+      <section id="Process" style={{ background: 'var(--primary-deep)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+            <span className="section-tag">EXECUTION FRAMEWORK</span>
+            <h2 className="section-title">The 9-Step <span style={{ color: 'var(--accent)' }}>Import Pipeline.</span></h2>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2px', background: 'var(--glass-border)', borderRadius: '32px', overflow: 'hidden' }}>
+             {[
+               "Requirement Receipt", "Strategic China Sourcing", "Supplier Verification",
+               "Cost Negotiation", "Order Confirmation", "Pre-Shipment Inspection",
+               "Global Logistics", "Customs Clearance", "Final Warehouse Delivery"
+             ].map((step, i) => (
+               <div key={i} style={{ padding: '50px 40px', background: 'var(--primary)', position: 'relative' }}>
+                  <span style={{ fontSize: '0.7rem', fontWeight: '900', color: 'rgba(255,255,255,0.05)', position: 'absolute', top: '20px', right: '30px' }}>PHASE 0{i+1}</span>
+                  <h4 style={{ fontSize: '1.2rem', color: i === 8 ? 'var(--accent)' : 'white' }}>{step}</h4>
+                  <p style={{ fontSize: '0.85rem', opacity: 0.4, marginTop: '12px' }}>Operational excellence at every node of the supply chain.</p>
                </div>
-            </motion.div>
-            
-            <motion.div {...fadeIn}>
-               <span className="section-tag">INDUSTRIAL GRADE</span>
-               <h2 className="section-title">Technical Expertise. <br /> No Compromise.</h2>
-               <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '48px' }}>
-                 We specialize in high-value niche sourcing including CNC production lines, food processing equipment, and industrial grade machinery. 
-               </p>
-               
-               <div style={{ display: 'grid', gap: '32px' }}>
-                  {[
-                    { icon: <Target />, title: "Technical Verification", desc: "Our engineers review specifications to ensure equipment meets your local standards." },
-                    { icon: <Search />, title: "Supplier Audits", desc: "We physically visit factories to verify production capability and financial stability." }
-                  ].map((item, i) => (
-                    <div key={i} style={{ display: 'flex', gap: '24px' }}>
-                       <div style={{ color: 'var(--accent)', flexShrink: 0 }}>{item.icon}</div>
-                       <div>
-                          <h4 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>{item.title}</h4>
-                          <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>{item.desc}</p>
-                       </div>
-                    </div>
-                  ))}
-               </div>
-            </motion.div>
-         </div>
+             ))}
+          </div>
+        </div>
       </section>
 
-      <div className="section-separator">
-         <div className="data-node" style={{ top: '-4px', left: '10%', marginLeft: '-4px' }} />
-         <div className="data-node" style={{ top: '-4px', right: '10%', marginRight: '-4px' }} />
-      </div>
-
-      {/* --- OPERATIONS DASHBOARD (GROUND CONTROL) --- */}
-      <section id="Logistics" style={{ background: '#05020F' }}>
+      {/* --- NETWORK & HUB CONTROL --- */}
+      <section id="Network" style={{ background: '#05020F' }}>
          <div className="container">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '80px' }}>
-               <div style={{ maxWidth: '600px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-                     <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#00FF00', boxShadow: '0 0 10px #00FF00' }} />
-                     <span className="section-tag" style={{ margin: 0 }}>GROUND OPERATIONS: ACTIVE</span>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '100px', alignItems: 'center', marginBottom: '120px' }}>
+               <motion.div {...fadeIn}>
+                  <span className="section-tag">GLOBAL INFRASTRUCTURE</span>
+                  <h2 className="section-title">Verified On-Ground <br /> <span style={{ color: 'var(--accent)' }}>Presence.</span></h2>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '1.25rem', marginBottom: '40px' }}>
+                     We are not brokers—we are operators. With a registered company and 7-person team in Guangzhou, we control the source.
+                  </p>
+                  
+                  <div style={{ display: 'grid', gap: '24px' }}>
+                     <div className="glass" style={{ padding: '30px', borderLeft: '4px solid var(--accent)' }}>
+                        <h4 style={{ color: 'white', marginBottom: '10px' }}>CHINA HQ</h4>
+                        <p style={{ fontSize: '0.9rem', opacity: 0.6 }}>Guangzhou, Nan Sha District. Team: Sourcing Execs, Warehouse Staff, QC Inspectors.</p>
+                     </div>
+                     <div className="glass" style={{ padding: '30px', borderLeft: '4px solid var(--accent-blue)' }}>
+                        <h4 style={{ color: 'white', marginBottom: '10px' }}>PAKISTAN OPERATIONS</h4>
+                        <p style={{ fontSize: '0.9rem', opacity: 0.6 }}>Lahore (Valencia Town) & Islamabad (F-10). Dedicated Warehouses in Raiwind & Islamabad.</p>
+                     </div>
                   </div>
-                  <h2 className="section-title">Superior Hub Control <br /> In <span style={{ color: 'var(--accent)' }}>China Mainland.</span></h2>
-               </div>
-               <p style={{ color: 'var(--text-muted)', maxWidth: '400px', fontSize: '1.1rem', marginBottom: '32px' }}>
-                  We are not just a freight forwarder. We are an on-ground entity operating from the heart of Guangzhou's industrial core.
-               </p>
-            </div>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '30px' }}>
-               {/* Primary Hub View */}
+               </motion.div>
+
                <motion.div 
-                  className="glass" 
                   style={{ 
-                    position: 'relative', height: '600px', overflow: 'hidden', 
-                    padding: '60px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
+                    position: 'relative', height: '540px', borderRadius: '48px', overflow: 'hidden', 
+                    padding: '60px', display: 'flex', flexDirection: 'column',
                     background: `linear-gradient(to top, rgba(5, 2, 15, 1), rgba(5, 2, 15, 0.4)), url(${opsHubImg})`,
-                    backgroundSize: 'cover', backgroundPosition: 'center', 
-                    backgroundBlendMode: 'screen',
-                    border: '1px solid rgba(255, 230, 0, 0.1)'
+                    backgroundSize: 'cover', backgroundPosition: 'center', backgroundBlendMode: 'screen',
+                    border: '1px solid rgba(255, 255, 255, 0.05)'
                   }}
                   {...fadeIn}
                >
                   <div style={{ position: 'relative', zIndex: 2 }}>
-                     <div style={{ fontSize: '0.75rem', fontWeight: '900', letterSpacing: '0.2rem', color: 'var(--accent)', marginBottom: '16px' }}>GUANGZHOU HEADQUARTERS</div>
-                     <h3 style={{ fontSize: '3.5rem', marginBottom: '24px', lineHeight: '1' }}>The Nansha <br /> Command Center</h3>
-                     <p style={{ maxWidth: '400px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.6' }}>
-                        Our 15,000 sqft facility handles consolidation, technical inspections, and high-speed cargo dispatch daily.
-                     </p>
+                     <span style={{ fontSize: '0.7rem', fontWeight: '900', letterSpacing: '0.3em', color: 'var(--accent)' }}>OPERATIONAL COMMAND</span>
+                     <h3 style={{ fontSize: '2.5rem', marginTop: '10px' }}>Nansha Consolidation <br /> Center</h3>
                   </div>
-                  {/* Decorative Elements */}
-                  <div style={{ position: 'absolute', top: '40px', right: '40px', textAlign: 'right' }}>
-                     <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', marginBottom: '4px' }}>CURRENT HUB LOAD</p>
-                     <p style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)', color: 'var(--accent)' }}>92.4%</p>
+                  <div style={{ marginTop: 'auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                     <div className="glass" style={{ padding: '20px', textAlign: 'center' }}>
+                        <p style={{ fontSize: '1.5rem', fontWeight: '800' }}>8+</p>
+                        <p style={{ fontSize: '0.6rem', opacity: 0.5 }}>YEARS ACTIVE</p>
+                     </div>
+                     <div className="glass" style={{ padding: '20px', textAlign: 'center' }}>
+                        <p style={{ fontSize: '1.5rem', fontWeight: '800' }}>500+</p>
+                        <p style={{ fontSize: '0.6rem', opacity: 0.5 }}>CLIENTS SERVED</p>
+                     </div>
                   </div>
                </motion.div>
+            </div>
+         </div>
+      </section>
 
-               <div style={{ display: 'grid', gap: '30px' }}>
-                  {/* Stats Cards */}
-                  <motion.div className="glass" style={{ padding: '40px', background: 'var(--primary-light)' }} {...fadeIn}>
-                     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-                        <div style={{ background: 'rgba(112, 0, 255, 0.1)', color: 'var(--accent-purple)', width: '60px', height: '60px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                           <Truck size={28} />
-                        </div>
-                        <div>
-                           <h4 style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)' }}>40.5<span style={{ fontSize: '1rem', opacity: 0.5 }}> TONS</span></h4>
-                           <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>AVERAGE DAILY DISPATCH VOLUME</p>
-                        </div>
-                     </div>
-                  </motion.div>
+      {/* --- CLIENTS MARQUEE --- */}
+      <section id="Clients" style={{ background: 'var(--primary)', padding: '120px 0', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container">
+           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+              <span className="section-tag">PORTFOLIO</span>
+              <h2 className="section-title">Trusted By <span style={{ color: 'var(--accent)' }}>Industry Leaders.</span></h2>
+           </div>
+           
+           <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', position: 'relative' }}>
+              <motion.div 
+                style={{ display: 'inline-flex', gap: '80px', padding: '20px 0' }}
+                animate={{ x: [0, -2000] }}
+                transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+              >
+                 {[
+                   "CHINA GEZHOUBA GROUP", "MUX FOOD INDUSTRIES", "PAK KASHMIR PVT LTD", 
+                   "HISOA PVT LTD", "GTX GERMAN TECHNOLOGIES", "AZEEM FOODS", "KC ENERGY",
+                   "PELICANA CHICKEN", "LUCKY SNACKS", "STARDAC", "REHMAT FOODS"
+                 ].map((client, i) => (
+                   <span key={i} style={{ fontSize: '1.8rem', fontWeight: '900', color: 'rgba(255,255,255,0.05)', letterSpacing: '0.1em' }}>{client}</span>
+                 ))}
+                 {/* Double for seamless marquee */}
+                 {[
+                   "CHINA GEZHOUBA GROUP", "MUX FOOD INDUSTRIES", "PAK KASHMIR PVT LTD", 
+                   "HISOA PVT LTD", "GTX GERMAN TECHNOLOGIES", "AZEEM FOODS", "KC ENERGY",
+                   "PELICANA CHICKEN", "LUCKY SNACKS", "STARDAC", "REHMAT FOODS"
+                 ].map((client, i) => (
+                   <span key={i + 100} style={{ fontSize: '1.8rem', fontWeight: '900', color: 'rgba(255,255,255,0.05)', letterSpacing: '0.1em' }}>{client}</span>
+                 ))}
+              </motion.div>
+           </div>
+        </div>
+      </section>
 
-                  <motion.div className="glass" style={{ padding: '40px' }} {...fadeIn}>
-                     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-                        <div style={{ background: 'rgba(0, 229, 255, 0.1)', color: 'var(--accent-blue)', width: '60px', height: '60px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                           <Globe size={28} />
-                        </div>
-                        <div>
-                           <h4 style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)' }}>12<span style={{ fontSize: '1rem', opacity: 0.5 }}> PORTS</span></h4>
-                           <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>DIRECT AIR & SEA CLEARANCE LANES</p>
-                        </div>
-                     </div>
-                  </motion.div>
+      {/* --- INDUSTRIAL MACHINERY SHOWCASE (HIGH-VALUE NICHE) --- */}
+      <section style={{ background: '#080415' }}>
+        <div className="container">
+           <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '80px', alignItems: 'center' }}>
+              <motion.div {...fadeIn}>
+                 <span className="section-tag">HIGH-VALUE NICHE</span>
+                 <h2 className="section-title">Industrial Machinery <br /> & <span style={{ color: 'var(--accent)' }}>Turn-Key Projects.</span></h2>
+                 <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '48px' }}>
+                    From CNC Processing Machines to EV Assembly Lines, we specialize in technical equipment sourcing where zero-margin-for-error is the standard.
+                 </p>
+                 
+                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+                    <div style={{ borderLeft: '2px solid rgba(255,255,255,0.05)', paddingLeft: '30px' }}>
+                       <h4 style={{ color: 'white', marginBottom: '10px' }}>Food Tech</h4>
+                       <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', lineHeight: '2' }}>
+                          <li>• Pasta Production Lines</li>
+                          <li>• Wafer Making Lines</li>
+                          <li>• Industrial Bakery Ovens</li>
+                       </ul>
+                    </div>
+                    <div style={{ borderLeft: '2px solid rgba(255,255,255,0.05)', paddingLeft: '30px' }}>
+                       <h4 style={{ color: 'white', marginBottom: '10px' }}>Heavy Industry</h4>
+                       <ul style={{ listStyle: 'none', padding: 0, fontSize: '0.85rem', color: 'rgba(255,255,255,0.4)', lineHeight: '2' }}>
+                          <li>• Hydropower Turbines</li>
+                          <li>• EV Production Lines</li>
+                          <li>• Portal & Tower Cranes</li>
+                       </ul>
+                    </div>
+                 </div>
+              </motion.div>
+              
+              <div style={{ background: 'var(--primary-light)', borderRadius: '40px', padding: '60px', position: 'relative', overflow: 'hidden' }}>
+                 <div style={{ color: 'var(--accent)', marginBottom: '30px' }}><Settings size={60} /></div>
+                 <h3 style={{ fontSize: '2rem', marginBottom: '20px' }}>Technical Sourcing <br /> Specialists</h3>
+                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem' }}>
+                    We provide chemical analysts, mechanical experts, and electrical engineers for installation and turn-key performance verification.
+                 </p>
+              </div>
+           </div>
+        </div>
+      </section>
 
-                  <motion.div className="glass" style={{ padding: '40px', background: 'var(--primary-deep)', border: '1px solid rgba(255, 230, 0, 0.2)' }} {...fadeIn}>
-                     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-                        <div style={{ background: 'rgba(255, 230, 0, 0.1)', color: 'var(--accent)', width: '60px', height: '60px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                           <Zap size={28} fill="var(--accent)" />
-                        </div>
-                        <div>
-                           <h4 style={{ fontSize: '2rem', fontFamily: 'var(--font-heading)', color: 'var(--accent)' }}>0.5H</h4>
-                           <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>MAX RESPONSE TIME TO HUB INQUIRIES</p>
-                        </div>
-                     </div>
-                  </motion.div>
+      {/* --- PRODUCT PORTFOLIO (FOOD & MATERIALS) --- */}
+      <section style={{ background: 'var(--primary)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+        <div className="container">
+           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+              <motion.div {...fadeIn}>
+                 <span className="section-tag">GLOBAL SKU PORTFOLIO</span>
+                 <h2 className="section-title">Raw Materials <br /> & <span style={{ color: 'var(--accent-blue)' }}>Ingredients.</span></h2>
+                 <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '40px' }}>
+                    Supplying the biggest FMCG names across Pakistan & Afghanistan. We source premium industrial ingredients with guaranteed purity.
+                 </p>
+                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    {['Lemon/Fruit Pulps', 'Ice Cream Powders', 'Non-Dairy Creamers', 'Food Savers & Flavors'].map(item => (
+                       <div key={item} style={{ padding: '15px 20px', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', fontSize: '0.85rem' }}>
+                          ✓ {item}
+                       </div>
+                    ))}
+                 </div>
+              </motion.div>
+              <div className="glass" style={{ padding: '60px', borderLeft: '1px solid var(--accent-blue)' }}>
+                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '30px' }}>
+                    <h4 style={{ color: 'white' }}>90% REPEAT RATE</h4>
+                    <span style={{ color: 'var(--accent-blue)' }}>$40k AVG VALUE</span>
+                 </div>
+                 <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.6' }}>
+                    "Bridge Initiative has been our backbone for sourcing specialized dairy alternates and pulps from Guangzhou for over 5 years." — <span style={{ color: 'white' }}>MUX Food Industries</span>
+                 </p>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* --- EXPERT TEAM SECTION --- */}
+      <section id="Team" style={{ background: 'var(--primary-deep)' }}>
+         <div className="container">
+            <div style={{ display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: '100px', alignItems: 'center' }}>
+               <div>
+                  <span className="section-tag">LEADERSHIP</span>
+                  <h2 className="section-title">The Brains <br /> Behind the <span style={{ color: 'var(--accent)' }}>Bridge.</span></h2>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.6' }}>
+                     A multi-national team of sourcing executives, customs law specialists, and installation experts managing over $40k average shipment values.
+                  </p>
+               </div>
+               
+               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+                  {[
+                    { name: "Wilson Wu", role: "Sourcing Executive (15yr Exp)" },
+                    { name: "Ms Nina", role: "Global Logistics & Freight" },
+                    { name: "M. Akbar", role: "Custom Handling Expert" },
+                    { name: "Mr S Amir Rasheed", role: "Customs Law Specialist" }
+                  ].map((member, i) => (
+                    <div key={i} className="glass" style={{ padding: '30px' }}>
+                       <h4 style={{ fontSize: '1.25rem', marginBottom: '4px' }}>{member.name}</h4>
+                       <p style={{ fontSize: '0.8rem', color: 'var(--accent)', fontWeight: '800', letterSpacing: '0.1em' }}>{member.role}</p>
+                    </div>
+                  ))}
                </div>
             </div>
          </div>
@@ -448,40 +514,60 @@ const App = () => {
         <div className="container">
            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '100px' }}>
               <div>
-                 <h2 className="section-title" style={{ fontSize: '4rem' }}>Ready to Scale? <br /> Let's Connect.</h2>
-                 <form style={{ display: 'grid', gap: '24px', marginTop: '60px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-                       <input placeholder="Full Name" style={{ background: 'var(--primary-light)', border: '1px solid var(--glass-border)', padding: '24px', borderRadius: '20px', color: 'white', fontFamily: 'inherit' }} />
-                       <input placeholder="Email Address" style={{ background: 'var(--primary-light)', border: '1px solid var(--glass-border)', padding: '24px', borderRadius: '20px', color: 'white', fontFamily: 'inherit' }} />
+                 <h2 className="section-title" style={{ fontSize: '4rem' }}>Scale Your <br /> Supply Chain.</h2>
+                 <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', marginBottom: '40px' }}>Partner with Bridge Initiative today.</p>
+                 
+                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', marginTop: '60px' }}>
+                    <div>
+                       <h4 style={{ color: 'var(--accent)', marginBottom: '15px', letterSpacing: '0.1em' }}>LAHORE</h4>
+                       <p style={{ fontSize: '0.9rem', opacity: 0.6, lineHeight: '1.6' }}>
+                          149-E Valencia Town, Lahore<br />
+                          Warehouse: 2-KM Raiwind Road
+                       </p>
                     </div>
-                    <textarea placeholder="Tell us about your sourcing needs..." rows="5" style={{ background: 'var(--primary-light)', border: '1px solid var(--glass-border)', padding: '24px', borderRadius: '20px', color: 'white', fontFamily: 'inherit' }}></textarea>
-                    <button className="btn-premium btn-accent" style={{ width: 'fit-content' }}>Send Inquiry</button>
-                 </form>
+                    <div>
+                       <h4 style={{ color: 'var(--accent)', marginBottom: '15px', letterSpacing: '0.1em' }}>ISLAMABAD</h4>
+                       <p style={{ fontSize: '0.9rem', opacity: 0.6, lineHeight: '1.6' }}>
+                          128-B, St 42, F10/4, Islamabad<br />
+                          Warehouse: 3-KM Kohat Road
+                       </p>
+                    </div>
+                 </div>
               </div>
-              
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '60px' }}>
-                 <div>
-                    <p style={{ color: 'var(--accent)', fontWeight: '900', letterSpacing: '0.2em', fontSize: '0.75rem', marginBottom: '20px' }}>HEADQUARTERS</p>
-                    <p style={{ fontSize: '1.4rem', lineHeight: '1.4' }}>Office 402, Trade Center, <br /> Islamabad, Pakistan</p>
-                 </div>
-                 <div>
-                    <p style={{ color: 'var(--accent)', fontWeight: '900', letterSpacing: '0.2em', fontSize: '0.75rem', marginBottom: '20px' }}>CHINA HUB</p>
-                    <p style={{ fontSize: '1.4rem', lineHeight: '1.4' }}>Nansha District, <br /> Guangzhou, China</p>
-                 </div>
-                 <div style={{ display: 'flex', gap: '24px' }}>
-                    <a href="#" style={{ color: 'white', opacity: 0.5 }}><Phone size={24} /></a>
-                    <a href="#" style={{ color: 'white', opacity: 0.5 }}><Mail size={24} /></a>
-                    <a href="#" style={{ color: 'white', opacity: 0.5 }}><MessageSquare size={24} /></a>
+
+              <div className="glass" style={{ padding: '50px' }}>
+                 <form style={{ display: 'grid', gap: '24px' }}>
+                    <div style={{ display: 'grid', gap: '8px' }}>
+                       <label style={{ fontSize: '0.7rem', fontWeight: '900', opacity: 0.4 }}>INQUIRY TYPE</label>
+                       <select style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }}>
+                          <option>Sourcing + DDP</option>
+                          <option>Logistics Only</option>
+                          <option>Customs Clearance</option>
+                       </select>
+                    </div>
+                    <input type="text" placeholder="Full Name" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
+                    <input type="email" placeholder="Business Email" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
+                    <textarea placeholder="Tell us about your sourcing needs..." rows={4} style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '15px', borderRadius: '12px', color: 'white' }} />
+                    <button className="btn-premium btn-accent">Submit Inquiry</button>
+                 </form>
+                 
+                 <div style={{ marginTop: '40px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+                    <div>
+                       <p style={{ fontSize: '0.6rem', fontWeight: '900', opacity: 0.4, letterSpacing: '0.1em' }}>DIRECT LINE</p>
+                       <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>+92 332 5888888</p>
+                       <p style={{ fontSize: '0.75rem', opacity: 0.6, marginTop: '8px' }}>WhatsApp Enabled</p>
+                    </div>
+                    <div>
+                       <p style={{ fontSize: '0.6rem', fontWeight: '900', opacity: 0.4, letterSpacing: '0.1em' }}>WECHAT ID</p>
+                       <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>13059187843</p>
+                       <p style={{ fontSize: '0.75rem', opacity: 0.6, marginTop: '8px' }}>China Ops Support</p>
+                    </div>
                  </div>
               </div>
            </div>
            
-           <div style={{ marginTop: '160px', paddingTop: '40px', borderTop: '1px solid var(--glass-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', opacity: 0.5, fontSize: '0.8rem' }}>
-              <p>© 2026 BRIDGE INITIATIVE PVT LTD. REIMAGINING TRADE.</p>
-              <div style={{ display: 'flex', gap: '40px' }}>
-                 <a href="#" style={{ color: 'white', textDecoration: 'none' }}>PRIVACY</a>
-                 <a href="#" style={{ color: 'white', textDecoration: 'none' }}>TERMS</a>
-              </div>
+           <div style={{ marginTop: '100px', padding: '40px 0', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+              <p style={{ fontSize: '0.7rem', opacity: 0.3 }}>© 2026 BRIDGE INITIATIVE PVT LTD. ALL RIGHTS RESERVED. REGISTERED IN CHINA & PAKISTAN.</p>
            </div>
         </div>
       </footer>
